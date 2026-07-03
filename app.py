@@ -1,6 +1,8 @@
-import streamlit as st
+import matplotlib
+matplotlib.use('Agg')  # สำคัญที่สุด! ต้องอยู่บรรทัดแรกสุด เพื่อป้องกันไม่ให้โค้ดแครชบนเซิร์ฟเวอร์ Linux
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import streamlit as st
 
 # ตั้งค่าหน้าเว็บให้แสดงผลแบบกว้าง
 st.set_page_config(page_title="Pallet Optimizer", layout="wide")
@@ -78,9 +80,13 @@ def draw_plot(res, title):
     return fig
 
 with col1:
-    st.pyplot(draw_plot(simple_res, "OPTION 1: SIMPLE GRID"))
+    fig1 = draw_plot(simple_res, "OPTION 1: SIMPLE GRID")
+    st.pyplot(fig1)
+    plt.close(fig1)  # ปิดรูปภาพทันทีหลังแสดงผลเสร็จ เพื่อป้องกันแรมล้นและระบบแครช
 
 if mixed_res["total"] > simple_res["total"]:
     with col2:
-        st.pyplot(draw_plot(mixed_res, "OPTION 2: MIXED ORIENTATION"))
+        fig2 = draw_plot(mixed_res, "OPTION 2: MIXED ORIENTATION")
+        st.pyplot(fig2)
+        plt.close(fig2)  # ปิดรูปภาพทันทีหลังแสดงผลเสร็จ เพื่อป้องกันแรมล้นและระบบแครช
     st.success(f"แนะนำ Option 2: สามารถเพิ่มจำนวนได้อีก {mixed_res['total'] - simple_res['total']} ใบ!")
