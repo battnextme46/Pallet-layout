@@ -82,13 +82,3 @@ if mixed_res["total"] > simple_res["total"]:
     with col2:
         st.pyplot(draw_plot(mixed_res, "OPTION 2: MIXED ORIENTATION"))
     st.success(f"แนะนำ Option 2: สามารถเพิ่มจำนวนได้อีก {mixed_res['total'] - simple_res['total']} ใบ!")
-
-#### 2. สร้างไฟล์ `requirements.txt` บน GitHub แล้วพิมพ์ 2 บรรทัดนี้:
-```text
-streamlit
-matplotlib
-
-#### 3. กด "Deploy now" บนหน้าจอ Streamlit:
-เลือก Repository ที่คุณอัปโหลดไฟล์ไป แล้วกดปุ่ม **Deploy!** ได้เลยครับ
-
-ลองทำตามขั้นตอนในสไลด์ดูนะครับ หากติดตรงไหน หรือ GitHub สร้างยังไง แจ้งผมได้ทันทีครับ!
