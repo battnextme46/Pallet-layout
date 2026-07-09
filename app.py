@@ -1,4 +1,3 @@
-
 import matplotlib
 matplotlib.use('Agg')  # ป้องกันปัญหาบน Linux Server
 
